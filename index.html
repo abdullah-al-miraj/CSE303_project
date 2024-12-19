@@ -1,144 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Role-Based Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loss Management Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Post-Harvest System</div>
-            <ul class="nav-links">
-                <li><a href="#farmer">Farmer</a></li>
-                <li><a href="#storage">Storage Manager</a></li>
-                <li><a href="#transport">Transport Operator</a></li>
-                <li><a href="#market">Market Manager</a></li>
-                <li><a href="#quality">Quality Inspector</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <!-- Farmer Dashboard -->
-        <section id="farmer" class="dashboard">
-            <h2>Farmer Dashboard</h2>
-            <div class="card">
-                <h3>Total Harvest Data</h3>
-                <p>Harvest details will be displayed here.</p>
-            </div>
-            <div class="card">
-                <h3>New Harvest Entry</h3>
-                <form>
-                    <label for="crop">Crop Type:</label>
-                    <input type="text" id="crop" name="crop" required>
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#lossRecording">Loss Recording</a></li>
+      <li><a href="#analysis">Analysis of Loss Causes</a></li>
+      <li><a href="#preventativeMeasures">Preventative Measures</a></li>
+      <li><a href="#trackingImprovements">Tracking Improvements</a></li>
+    </ul>
+  </nav>
 
-                    <label for="quantity">Quantity (kg):</label>
-                    <input type="number" id="quantity" name="quantity" required>
+  <!-- Dashboard -->
+  <section id="home">
+    <h1>Loss Management Dashboard</h1>
+    <p>Overview of loss at each stage of the supply chain</p>
 
-                    <label for="quality">Quality:</label>
-                    <select id="quality" name="quality">
-                        <option value="High">High</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Low">Low</option>
-                    </select>
+    <div id="dashboard">
+      <button onclick="window.location.href='#lossRecording'">Loss Recording</button>
+      <button onclick="window.location.href='#analysis'">Analysis of Loss Causes</button>
+      <button onclick="window.location.href='#preventativeMeasures'">Preventative Measures</button>
+      <button onclick="window.location.href='#trackingImprovements'">Tracking Improvements</button>
+    </div>
 
-                    <button type="submit">Add Harvest</button>
-                </form>
-            </div>
-        </section>
+    <div id="charts">
+      <!-- Interactive Charts or Tables -->
+      <!-- Example Placeholder -->
+      <h3>Loss Tracking Summary</h3>
+      <div id="chartContainer">
+        <!-- This could be a dynamic chart using libraries like Chart.js -->
+      </div>
+    </div>
+  </section>
 
-        <!-- Storage Manager Dashboard -->
-        <section id="storage" class="dashboard">
-            <h2>Storage Manager Dashboard</h2>
-            <div class="card">
-                <h3>Storage Conditions</h3>
-                <p>Temperature, humidity, and storage duration data displayed here.</p>
-            </div>
-            <div class="card">
-                <h3>Log Storage Details</h3>
-                <form>
-                    <label for="location">Storage Location:</label>
-                    <input type="text" id="location" name="location" required>
+  <!-- Pages for Different Sections -->
+  <section id="lossRecording">
+    <h2>Loss Recording at Each Stage</h2>
+    <form id="lossRecordingForm">
+      <label for="harvestingLoss">Harvesting Loss:</label>
+      <input type="number" id="harvestingLoss" name="harvestingLoss">
+      <br>
+      <label for="storageLoss">Storage Loss:</label>
+      <input type="number" id="storageLoss" name="storageLoss">
+      <br>
+      <label for="handlingLoss">Handling Loss:</label>
+      <input type="number" id="handlingLoss" name="handlingLoss">
+      <br>
+      <label for="transportationLoss">Transportation Loss:</label>
+      <input type="number" id="transportationLoss" name="transportationLoss">
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
 
-                    <label for="condition">Condition:</label>
-                    <input type="text" id="condition" name="condition" required>
+  <section id="analysis">
+    <h2>Analysis of Loss Causes</h2>
+    <div id="analysisContent">
+      <p>Analyze loss causes based on physical damage, spoilage, etc.</p>
+      <!-- Add chart or table -->
+    </div>
+  </section>
 
-                    <button type="submit">Log Storage</button>
-                </form>
-            </div>
-        </section>
+  <section id="preventativeMeasures">
+    <h2>Implementation of Preventative Measures</h2>
+    <p>List and track implemented measures.</p>
+    <!-- Add content for measures -->
+  </section>
 
-        <!-- Transport Operator Dashboard -->
-        <section id="transport" class="dashboard">
-            <h2>Transport Operator Dashboard</h2>
-            <div class="card">
-                <h3>Transport Logs</h3>
-                <p>Start and end locations, transport conditions displayed here.</p>
-            </div>
-            <div class="card">
-                <h3>Update Transport Details</h3>
-                <form>
-                    <label for="vehicle">Vehicle ID:</label>
-                    <input type="text" id="vehicle" name="vehicle" required>
+  <section id="trackingImprovements">
+    <h2>Tracking Improvements</h2>
+    <p>Track progress with key performance indicators (KPIs).</p>
+    <!-- Add charts, graphs, or reports -->
+  </section>
 
-                    <label for="start">Start Location:</label>
-                    <input type="text" id="start" name="start" required>
-
-                    <label for="end">End Location:</label>
-                    <input type="text" id="end" name="end" required>
-
-                    <button type="submit">Update Transport</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Market Manager Dashboard -->
-        <section id="market" class="dashboard">
-            <h2>Market Manager Dashboard</h2>
-            <div class="card">
-                <h3>Sales Data</h3>
-                <p>Market sales and spoilage rates displayed here.</p>
-            </div>
-            <div class="card">
-                <h3>Log Market Arrivals</h3>
-                <form>
-                    <label for="market">Market Location:</label>
-                    <input type="text" id="market" name="market" required>
-
-                    <label for="sales">Sales (kg):</label>
-                    <input type="number" id="sales" name="sales" required>
-
-                    <button type="submit">Log Arrival</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Quality Inspector Dashboard -->
-        <section id="quality" class="dashboard">
-            <h2>Quality Inspector Dashboard</h2>
-            <div class="card">
-                <h3>Inspection Logs</h3>
-                <p>Inspection details and compliance data displayed here.</p>
-            </div>
-            <div class="card">
-                <h3>Log Inspection</h3>
-                <form>
-                    <label for="entity">Entity Inspected:</label>
-                    <select id="entity" name="entity">
-                        <option value="Harvest">Harvest</option>
-                        <option value="Storage">Storage</option>
-                        <option value="Transport">Transport</option>
-                    </select>
-
-                    <label for="result">Inspection Result:</label>
-                    <input type="text" id="result" name="result" required>
-
-                    <button type="submit">Log Inspection</button>
-                </form>
-            </div>
-        </section>
-    </main>
 </body>
 </html>
